@@ -92,8 +92,8 @@
 
 /* Card */
 .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 28px;
     transition: all 0.3s ease;
@@ -142,47 +142,35 @@
 /* Skill List */
 .skillList {
     display: flex;
-    flex-direction: column;
-    gap: 18px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .skillItem {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.skillInfo {
-    display: flex;
-    align-items: center;
-}
-
-.skillName {
     font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-weight: 500;
+    color: #ffffff;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
 }
 
-/* Progress Bar */
-.progressBar {
-    height: 6px;
+.skillItem:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--card-color, var(--primary));
+    transform: translateY(-2px);
+}
+
+[data-theme="light"] .skillItem {
+    background: var(--bg-secondary);
+    border-color: var(--border-medium);
+}
+
+[data-theme="light"] .skillItem:hover {
     background: var(--bg-tertiary);
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-[data-theme="light"] .progressBar {
-    background: rgba(0, 0, 0, 0.08);
-}
-
-.progressFill {
-    height: 100%;
-    border-radius: 3px;
-    transition: width 1s ease;
-}
-
-[data-theme="light"] .progressFill {
-    background: var(--text-primary) !important;
+    border-color: var(--text-primary);
 }
 
 /* Responsive */

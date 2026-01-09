@@ -55,6 +55,7 @@ const projects = [
         gradient: 'linear-gradient(135deg, #a855f7 0%, #6366f1 100%)',
         accentColor: '#a855f7',
         category: 'AI/ML',
+        link: 'https://deepkore.ai',
     },
     {
         id: 4,
@@ -72,10 +73,11 @@ const projects = [
         gradient: 'linear-gradient(135deg, #10b981 0%, #22d3ee 100%)',
         accentColor: '#10b981',
         category: 'Deep Learning',
+        link: 'https://github.com/Abishek9342/Plants-Disease-Prediction',
     },
     {
         id: 5,
-        title: 'YOLO-ASCA',
+        title: 'YOLO-ASCA: A Rule-Based Framework for Identifying Safety Risks in Construction Management',
         subtitle: 'Construction Safety Compliance',
         description: 'YOLO-ASCA integrates high-accuracy object detection with semantic rule-based validation for construction site safety monitoring.',
         longDescription: 'Enhances construction safety by detecting safety gear, monitoring worker behavior, and automatically assessing compliance with predefined safety standards to prevent hazards.',
@@ -90,6 +92,7 @@ const projects = [
         accentColor: '#f59e0b',
         category: 'Computer Vision',
         badge: 'Published',
+        link: 'https://ieeexplore.ieee.org/document/11005349',
     },
 ];
 
@@ -156,10 +159,12 @@ export default function Projects() {
                             className={`${styles.card} ${activeProject === project.id ? styles.expanded : ''}`}
                             style={{
                                 animationDelay: `${idx * 0.1}s`,
-                                '--accent': project.accentColor
+                                '--accent': project.accentColor,
+                                cursor: project.link ? 'pointer' : 'default'
                             } as React.CSSProperties}
                             onMouseEnter={() => setActiveProject(project.id)}
                             onMouseLeave={() => setActiveProject(null)}
+                            onClick={() => project.link && window.open(project.link, '_blank')}
                         >
                             {project.badge && (
                                 <span className={styles.badge}>
@@ -206,7 +211,7 @@ export default function Projects() {
                                 {/* Action Button - Only for Deepkore AI Assistant */}
                                 {project.link && (
                                     <div className={styles.cardActions}>
-                                        <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.actionBtn}>
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.actionBtn} onClick={(e) => e.stopPropagation()}>
                                             Visit Website
                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />

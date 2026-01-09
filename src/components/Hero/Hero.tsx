@@ -149,17 +149,9 @@ export default function Hero() {
                 </p>
 
                 {/* CTA Buttons */}
-                <div className={styles.buttons}>
-                    <button onClick={scrollToProjects} className={styles.primaryBtn}>
-                        <span>Explore My Work</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                    <button onClick={scrollToContact} className={styles.secondaryBtn}>
-                        <span>Get in Touch</span>
-                    </button>
-                </div>
+                {/* <div className={styles.buttons}> */}
+                {/* Buttons removed as requested */}
+                {/* </div> */}
 
                 {/* Stats */}
                 <div className={styles.stats}>

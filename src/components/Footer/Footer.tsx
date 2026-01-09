@@ -12,7 +12,7 @@ const footerLinks = {
         { name: 'Contact', href: '#contact' },
     ],
     connect: [
-        { name: 'GitHub', href: 'https://github.com', external: true },
+        { name: 'GitHub', href: 'https://github.com/Abishek9342', external: true },
         { name: 'LinkedIn', href: 'https://www.linkedin.com/in/abishek-sridharan-7272562a5/', external: true },
         { name: 'Email', href: 'mailto:abishekahss12@gmail.com', external: false },
     ],

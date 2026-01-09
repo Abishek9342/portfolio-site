@@ -8,49 +8,48 @@ const skillCategories = [
         title: 'AI & Machine Learning',
         color: '#6366f1',
         skills: [
-            { name: 'LangChain', level: 95 },
-            { name: 'LangGraph', level: 90 },
-            { name: 'TensorFlow', level: 85 },
-            { name: 'PyTorch', level: 80 },
+            'LangChain',
+            'LangGraph',
+            'TensorFlow',
+            'PyTorch',
         ],
     },
     {
         title: 'Programming',
         color: '#22d3ee',
         skills: [
-            { name: 'Python', level: 95 },
-            { name: 'JavaScript', level: 75 },
-            { name: 'TypeScript', level: 70 },
-            { name: 'C/C++', level: 70 },
+            'Python',
+            'JavaScript',
+            'TypeScript',
+            'C/C++',
         ],
     },
     {
         title: 'Databases',
         color: '#a855f7',
         skills: [
-            { name: 'Neo4j', level: 95 },
-            { name: 'ChromaDB', level: 90 },
-            { name: 'MongoDB', level: 85 },
-            { name: 'Vector DBs', level: 90 },
+            'Neo4j',
+            'MongoDB',
+            'Vector DBs',
         ],
     },
     {
         title: 'Backend & APIs',
         color: '#10b981',
         skills: [
-            { name: 'FastAPI', level: 95 },
-            { name: 'REST APIs', level: 90 },
-            { name: 'Postman', level: 85 },
-            { name: 'GraphQL', level: 70 },
+            'FastAPI',
+            'REST APIs',
+            'Postman',
+            'GraphQL',
         ],
     },
     {
         title: 'Cloud & DevOps',
         color: '#f59e0b',
         skills: [
-            { name: 'AWS Bedrock', level: 90 },
-            { name: 'AWS EC2', level: 85 },
-            { name: 'AWS Amplify', level: 85 },
+            'AWS Bedrock',
+            'AWS EC2',
+            'AWS Amplify',
         ],
     },
 ];
@@ -105,21 +104,9 @@ export default function Skills() {
 
                             <div className={styles.skillList}>
                                 {category.skills.map((skill) => (
-                                    <div key={skill.name} className={styles.skillItem}>
-                                        <div className={styles.skillInfo}>
-                                            <span className={styles.skillName}>{skill.name}</span>
-                                        </div>
-                                        <div className={styles.progressBar}>
-                                            <div
-                                                className={styles.progressFill}
-                                                style={{
-                                                    width: isVisible ? `${skill.level}%` : '0%',
-                                                    background: category.color,
-                                                    transitionDelay: `${idx * 0.1}s`
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
+                                    <span key={skill} className={styles.skillItem}>
+                                        {skill}
+                                    </span>
                                 ))}
                             </div>
                         </div>

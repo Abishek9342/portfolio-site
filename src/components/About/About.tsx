@@ -47,7 +47,7 @@ export default function About() {
                             <p className={styles.description}>
                                 I completed my B.Tech in Artificial Intelligence and Data Science at
                                 Mepco Schlenk Engineering College. At Deepkore Technologies, I've architected
-                                end-to-end AI pipelines—from data ingestion and model integration to API
+                                end-to-end AI pipelines from data ingestion and model integration to API
                                 deployment and cloud infrastructure.
                             </p>
                         </div>
@@ -116,12 +116,6 @@ export default function About() {
                                     <line x1="12" y1="15" x2="12" y2="3" />
                                 </svg>
                                 Download Resume
-                            </a>
-                            <a href="#contact" className={styles.contactLink}>
-                                Let's Connect
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
                             </a>
                         </div>
                     </div>

@@ -72,7 +72,7 @@ export default function Navbar() {
                     </ul>
 
                     <a href="#contact" className={styles.ctaButton}>
-                        Let's Talk
+                        Let's Connect
                     </a>
 
                     <button
