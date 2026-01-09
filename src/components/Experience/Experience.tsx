@@ -8,7 +8,7 @@ const experiences = [
         role: 'AI Engineer',
         company: 'Deepkore Technologies',
         location: 'Onsite',
-        period: 'Oct 2024 - Present',
+        period: 'Oct 2025 - Present',
         description: 'Building production-grade AI systems and intelligent SaaS platforms.',
         achievements: [
             'Architected internal chatbot reducing employee query resolution time by 60%',

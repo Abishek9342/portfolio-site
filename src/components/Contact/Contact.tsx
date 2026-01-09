@@ -78,7 +78,7 @@ export default function Contact() {
 
                         {/* Social Links */}
                         <div className={styles.socialSection}>
-                            <span className={styles.socialLabel}>Connect on Social</span>
+                            <span className={styles.socialLabel}>Social Profiles</span>
                             <div className={styles.socialLinks}>
                                 <a href="https://github.com/Abishek9342" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="GitHub">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

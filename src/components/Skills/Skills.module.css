@@ -92,20 +92,15 @@
 
 /* Card */
 .card {
-    background: #050505;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, #1a1a1a 0%, #050505 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 28px;
     transition: all 0.3s ease;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.5s ease forwards;
-}
-
-/* Light mode */
-[data-theme="light"] .card {
-    border-color: var(--border-medium);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes fadeInUp {
@@ -118,11 +113,7 @@
 .card:hover {
     border-color: var(--card-color, var(--primary));
     transform: translateY(-6px);
-}
-
-[data-theme="light"] .card:hover {
-    border-color: var(--text-primary);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
 }
 
 /* Card Header */
@@ -136,7 +127,7 @@
 .cardHeader h3 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
 /* Skill List */
@@ -150,7 +141,7 @@
     font-size: 0.9rem;
     font-weight: 500;
     color: #ffffff;
-    background: #0a0a0a;
+    background: #111111;
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 8px 16px;
     border-radius: 100px;
@@ -158,19 +149,11 @@
 }
 
 .skillItem:hover {
-    background: var(--bg-card-hover);
+    background: #252525;
     border-color: var(--card-color, var(--primary));
     transform: translateY(-2px);
-}
-
-[data-theme="light"] .skillItem {
-    background: var(--bg-secondary);
-    border-color: var(--border-medium);
-}
-
-[data-theme="light"] .skillItem:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
 }
 
 /* Responsive */
