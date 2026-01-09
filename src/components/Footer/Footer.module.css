@@ -1,0 +1,139 @@
+.footer {
+    position: relative;
+    padding: 50px 0 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-subtle);
+}
+
+[data-theme="light"] .footer {
+    border-color: var(--border-medium);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* Main Content */
+.mainContent {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 32px;
+}
+
+/* Links Grid */
+.linksGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+}
+
+.linkSection h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+}
+
+.linkSection ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.linkSection a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.linkSection a:hover {
+    color: var(--primary-light);
+}
+
+[data-theme="light"] .linkSection a:hover {
+    color: var(--text-primary);
+}
+
+.externalIcon {
+    opacity: 0.5;
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background: var(--border-subtle);
+}
+
+[data-theme="light"] .divider {
+    background: var(--border-medium);
+}
+
+/* Bottom Bar */
+.bottomBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Scroll Top */
+.scrollTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    color: var(--primary-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+[data-theme="light"] .scrollTop {
+    background: var(--bg-card);
+    border-color: var(--border-medium);
+    color: var(--text-muted);
+}
+
+.scrollTop:hover {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    color: white;
+}
+
+[data-theme="light"] .scrollTop:hover {
+    background: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .footer {
+        padding: 40px 0 0;
+    }
+
+    .linksGrid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .bottomBar {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}

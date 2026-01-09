@@ -1,0 +1,203 @@
+.skills {
+    position: relative;
+    padding: 120px 0;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+}
+
+/* Background decoration for dark mode */
+.skills::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+[data-theme="light"] .skills::after {
+    display: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sectionTag {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    text-transform: lowercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+}
+
+[data-theme="light"] .sectionTag {
+    color: var(--text-muted);
+}
+
+.title {
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+}
+
+.gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.grid.visible .card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 28px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Light mode */
+[data-theme="light"] .card {
+    border-color: var(--border-medium);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    border-color: var(--card-color, var(--primary));
+    transform: translateY(-6px);
+}
+
+[data-theme="light"] .card:hover {
+    border-color: var(--text-primary);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Header */
+.cardHeader {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cardHeader h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Skill List */
+.skillList {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.skillItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skillInfo {
+    display: flex;
+    align-items: center;
+}
+
+.skillName {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Progress Bar */
+.progressBar {
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+[data-theme="light"] .progressBar {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.progressFill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease;
+}
+
+[data-theme="light"] .progressFill {
+    background: var(--text-primary) !important;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .skills {
+        padding: 80px 0;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
