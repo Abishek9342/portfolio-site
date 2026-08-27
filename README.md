@@ -3,8 +3,7 @@
 Personal portfolio site, live at **[abisheksridharan.netlify.app](https://abisheksridharan.netlify.app/)**.
 
 Built with React 19, TypeScript, and Vite. Design system (warm cream background, single
-terracotta accent, Inter/Sora/IBM Plex Mono typography) mirrors the production style used in
-[PRPL](https://github.com/Abishek9342), a finance reconciliation platform.
+terracotta accent, Inter/Sora/IBM Plex Mono typography) mirrors.
 
 ## Stack
 
