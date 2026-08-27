@@ -1,0 +1,70 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.job {
+  padding: 28px 30px;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.job-company {
+  font-size: 18px;
+}
+
+.job-role {
+  display: block;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.job-dates {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.job-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.job-bullets li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text2);
+}
+
+.job-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .job {
+    padding: 22px 20px;
+  }
+}
