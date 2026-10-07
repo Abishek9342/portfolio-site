@@ -39,6 +39,34 @@
   width: fit-content;
 }
 
+.publications-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pub-subhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 32px 0 14px;
+}
+
+.pub-subhead h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.pub-subhead a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
 @media (max-width: 900px) {
   .publications-grid {
     grid-template-columns: 1fr 1fr;

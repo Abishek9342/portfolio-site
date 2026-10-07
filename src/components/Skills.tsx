@@ -26,7 +26,7 @@ export function Skills() {
   return (
     <section id="skills" className="section">
       <div className="container">
-        <SectionEyebrow num="04" label="Technical skills" />
+        <SectionEyebrow num="02" label="Technical skills" />
         <h2 className="section-title">Skills</h2>
 
         <div className="skills-panel card">

@@ -4,8 +4,8 @@ import './Nav.css';
 const links = [
   { href: '#top', id: 'top', label: 'Home' },
   { href: '#experience', id: 'experience', label: 'Experience' },
-  { href: '#projects', id: 'projects', label: 'Projects' },
   { href: '#skills', id: 'skills', label: 'Skills' },
+  { href: '#publications', id: 'publications', label: 'Publications' },
   { href: '#contact', id: 'contact', label: 'Contact' },
 ];
 

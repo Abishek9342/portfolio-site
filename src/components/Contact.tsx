@@ -14,7 +14,7 @@ export function Contact() {
   return (
     <section id="contact" className="section contact-section">
       <div className="container">
-        <SectionEyebrow num="06" label="Get in touch" />
+        <SectionEyebrow num="04" label="Get in touch" />
         <div className="contact-card card">
           <h2 className="contact-title">Let's talk</h2>
           <p className="contact-sub">
@@ -49,7 +49,6 @@ export function Contact() {
 
         <footer className="footer">
           <span>© {year} {profile.name}</span>
-          <span>{profile.location}</span>
         </footer>
       </div>
     </section>

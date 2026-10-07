@@ -1,177 +1,133 @@
 export const profile = {
   name: 'Abishek S',
   role: 'AI Engineer',
-  location: 'Chennai, India',
   email: 'abisheksridharan.work@gmail.com',
   github: 'https://github.com/Abishek9342',
   linkedin: 'https://www.linkedin.com/in/abishek-sridharan-7272562a5/',
   kaggle: 'https://www.kaggle.com/abishek9324',
   whatsappNumber: '919342764046',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: '/Abishek-resume.pdf',
+};
+
+// Descriptions use **double asterisks** for the key result, rendered bold
+// (see RichText in Experience.tsx).
+export type WorkProject = {
+  title: string;
+  tags: string[];
+  description: string;
+  link?: string;
 };
 
 export type Experience = {
   company: string;
   role: string;
   dates: string;
-  mode: string;
-  bullets: string[];
+  projects: WorkProject[];
 };
 
 export const experience: Experience[] = [
   {
     company: 'Pothys Retail Pvt Ltd',
     role: 'AI Engineer',
-    dates: 'Jul 2026 — Present',
-    mode: 'Onsite',
-    bullets: [
-      "Building and maintaining PRPL, a production FastAPI + React 19/TypeScript finance platform for Pothys Retail's finance team, spanning ~15 independent reconciliation modules: AP/vendor, AR/customer, GST, TDS, GR/IR, inter-company transfers, bank & treasury, credit card, tender/commission, gift card & loyalty.",
-      'Engineered a bank-format-agnostic statement parsing engine (PDF, XLSX, XLS, CSV) handling ruled-table and borderless/word-position-reconstructed PDF layouts across 5+ banks via a synonym-driven tolerant column mapper with algebraic trailer-total cross-validation; grew its dedicated test suite from 46 to 69 passing tests against real production files.',
-      'Designed a Gemini-powered tool-use/function-calling AI chat assistant querying live reconciliation data via real backend functions, plus a separate autonomous "Daily Recon Health Agent" using a two-pass maker/checker LLM architecture: one pass drafts findings, a second independently verifies every claim against raw tool output, keeping all arithmetic in deterministic code.',
-      'Implemented JWT sliding-session auth with httpOnly cookies, Google OAuth2, and declarative RBAC; authored a security audit that fixed hardcoded credential exposure, added upload validation (magic-byte/zip-bomb checks) across ~20 endpoints, and resolved multi-worker race conditions via cross-process file locking.',
-      'Deployed and operated the platform on GCP (Compute Engine + nginx + PostgreSQL + systemd); load-tested to 150 concurrent users at 0% failure rate using Locust.',
+    dates: 'Jul 2026 – Present',
+    projects: [
+      {
+        title: 'PRPL Finance Operations Platform',
+        tags: ['FastAPI', 'React 19', 'TypeScript', 'PostgreSQL', 'GCP'],
+        description:
+          "Built and maintain the company's finance automation platform, **used daily by the finance team** across **~20 reconciliation and GST modules** (AP, AR, GST, TDS, GR/IR, inter-company, bank, card, tender and gift card). Own the architecture, backend and frontend development, role-based access control, security hardening, **500+ automated tests** and production deployment on Google Cloud.",
+      },
+      {
+        title: 'GST Input Tax Credit Reconciliation',
+        tags: ['Python', 'Pandas', 'SAP OData', 'ReportLab'],
+        description:
+          "Designed an 11-level matching engine that reconciles **~3.9 lakh SAP purchase records against GSTR-2B in minutes**, covering exact, date, tax, invoice-similarity and credit-note rules. Integrated the live SAP vendor master over OData to generate a GSTR-1 non-filing notice for each vendor and **email ~2,000 vendors automatically**, replacing manual follow-up and protecting the company's input tax credit.",
+      },
+      {
+        title: 'Enterprise Email Integration',
+        tags: ['Microsoft Graph API', 'OAuth 2.0', 'PostgreSQL'],
+        description:
+          "Migrated every outgoing email, including weekly statements to **~92 accountants**, vendor notices, user invitations and system alerts, to a **Microsoft 365 shared mailbox via the Microsoft Graph API** with certificate-based authentication. Implemented rate limiting that **keeps sending within the organisation's hourly and daily limits**, with automatic pause and resume for large batches.",
+      },
+      {
+        title: 'LLM Finance Assistant and Agents',
+        tags: ['LLM Function Calling', 'Agentic AI', 'FastAPI'],
+        description:
+          'Built a conversational **LLM assistant** that answers finance questions from **live reconciliation data through function calling** and prepares actions such as sending reports, which **run only after the user confirms them**. Designed scheduled agents, including a **maker/checker agent** in which one model drafts findings and a second independently verifies them against the source data.',
+      },
+      {
+        title: 'AP Accountant Performance Analytics',
+        tags: ['Python', 'Pandas', 'PostgreSQL'],
+        description:
+          "Automated weekly tracking of **~58,000 open vendor items** to show what each accountant cleared, carried forward or newly received, **matching the finance team's manual result exactly**. Scores and ranks **~98 accountants** on ageing reduction, offset clearance and task completion, with an AI-written management summary and a personalised pending-work email for each accountant.",
+      },
+      {
+        title: 'Bank Statement Processing Engine',
+        tags: ['Python', 'Pandas', 'LLM Column Mapping'],
+        description:
+          "**Replaced five bank-specific parsers** with one configuration-driven engine for PDF, Excel and CSV statements, with totals cross-checked against each statement's summary. Added **AI-proposed column mapping** for new formats from masked sample rows, validated on the full file and **approved by a user before use** (identical totals on 54 real PhonePe files).",
+      },
     ],
   },
   {
     company: 'CobuildX.ai',
     role: 'AI Engineer',
-    dates: 'Apr 2025 — Jun 2026',
-    mode: 'Onsite',
-    bullets: [
-      'Architected and shipped an agentic MCP server on AWS Lambda (JSON-RPC 2.0) exposing 8 Claude.ai-integrated production tools for B2B sales automation: lead CRUD, CRM filtering, ICP scoring (0–100), and role-priority LinkedIn/email enrichment via Apify with Hunter.io fallback chains; designed a stateless EventBridge worker firing 60-second Slack reminder batches.',
-      'Delivered truAI, a DPDPA-compliant legal RAG platform (FastAPI + React 18 + LangChain) with dual guardrails: an authority-scoped citation layer and an autonomous GitHub scanner flagging 300+ PII and cookie violation patterns; serves SSE-streamed document Q&A with subsecond first-token latency, reducing manual legal-review effort by ~40%.',
-      'Engineered and published truScanner v0.2.10 to PyPI, an open-source static analysis CLI detecting 300+ PII and financial data patterns, with a 3-tier LLM fallback (AWS Bedrock → Ollama → local quantized models) for zero cloud-dependency operation.',
-      'Productionized WarpX, an AI collaborative workspace (React 18 + FastAPI + Supabase) featuring a two-level autonomous memory architecture where per-thread LLM summaries propagate to a channel-wide context store, cutting per-message LLM token cost by ~60% via summary caching.',
+    dates: 'Apr 2025 – Jun 2026',
+    projects: [
+      {
+        title: 'Lead Management MCP Server',
+        tags: ['AWS Lambda', 'MCP', 'Claude', 'EventBridge'],
+        description:
+          'Built a **Model Context Protocol server on AWS Lambda** exposing **8 tools to Claude** for B2B sales automation: lead management, CRM filtering, ideal-customer-profile scoring (0 to 100) and contact enrichment through Apify with a Hunter.io fallback. Added a scheduled EventBridge worker for Slack reminders that **removed the manual steps from sales outreach**.',
+        link: 'https://github.com/Abishek9342/lead-management',
+      },
+      {
+        title: 'truAI: Legal RAG Platform',
+        tags: ['FastAPI', 'React', 'LangChain', 'AWS Lambda'],
+        description:
+          'Delivered a **DPDPA-compliant legal research platform** that streams answers with **sub-second first-token latency**, grounded in citations that separate binding statutes from non-binding guidance. Included an automated GitHub scanner for 300+ PII and cookie-compliance patterns, **reducing manual legal review effort by ~40%**.',
+      },
+      {
+        title: 'truScanner (open source, PyPI)',
+        tags: ['Python', 'AWS Bedrock', 'Ollama'],
+        description:
+          'Built and **published an open-source CLI on PyPI** (v0.2.10) that scans codebases for **300+ patterns of personal and financial data**, such as social security numbers, card numbers and API keys, with a three-tier LLM fallback (AWS Bedrock, Ollama, local quantised models) so it **runs fully offline**.',
+        link: 'https://pypi.org/project/truscanner',
+      },
+      {
+        title: 'WarpX: AI Collaborative Workspace',
+        tags: ['React', 'FastAPI', 'Supabase'],
+        description:
+          'Designed a **two-level LLM memory architecture** that summarises each thread into a channel-wide context store, so the assistant keeps long-term context while **cutting per-message token cost by ~60%** through summary caching.',
+      },
     ],
   },
 ];
 
-export type Project = {
-  slug: string;
+export const skillGroups: { label: string; items: string[] }[] = [
+  { label: 'Languages', items: ['Python', 'TypeScript', 'JavaScript', 'SQL'] },
+  {
+    label: 'AI & LLMs',
+    items: ['Anthropic Claude', 'LangChain', 'AWS Bedrock', 'Google Vertex AI', 'RAG', 'LLM Agents', 'Ollama', 'PyTorch', 'TensorFlow'],
+  },
+  {
+    label: 'Backend & APIs',
+    items: ['FastAPI', 'Pydantic', 'SQLAlchemy', 'MCP', 'REST', 'JWT', 'Microsoft Graph', 'SAP OData'],
+  },
+  { label: 'Frontend', items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'] },
+  { label: 'Databases', items: ['PostgreSQL', 'Supabase', 'DynamoDB', 'ChromaDB'] },
+  { label: 'Cloud & DevOps', items: ['GCP', 'AWS Lambda', 'Docker', 'nginx', 'Linux', 'GitHub Actions', 'Git'] },
+  { label: 'Testing', items: ['Pytest', 'Locust'] },
+];
+
+export type Publication = {
   title: string;
-  tagline: string;
-  description: string;
-  bullets: string[];
-  tags: string[];
+  detail: string;
   link?: string;
   linkLabel?: string;
-  featured?: boolean;
-  metric?: { value: string; label: string };
 };
 
-export const featuredProject: Project = {
-  slug: 'ocr-resilience',
-  title: 'ocr-resilience',
-  tagline: 'Multi-Engine OCR Robustness Pipeline',
-  description:
-    'An open-source Python package (in active development) combining classical computer-vision preprocessing with a 4-engine OCR ensemble, built on the idea that robustness comes from disagreement-aware fusion, not a bigger model.',
-  bullets: [
-    'Combined Laplacian blur detection, Sauvola binarization, CLAHE, and deskewing with a quality-aware router and a 4-engine OCR ensemble (Tesseract, EasyOCR, PaddleOCR, RapidOCR), reducing mean character error rate by ~72% vs. the best single engine (0.031 vs. 0.111 CER) across an 11-condition degradation benchmark.',
-    'Designed a ROVER-style fusion algorithm (union-find spatial clustering plus confidence-weighted character voting) and validated results with paired-bootstrap statistical significance testing, Cohen’s d, and Bonferroni-corrected comparisons, including honest reporting of ablated components that hurt accuracy.',
-    'Built a full CI/CD pipeline (GitHub Actions: 4-version Python test matrix, ruff linting, wheel-build smoke tests, PyPI trusted-publisher release automation) backing a 176-test pytest regression suite with mocked OCR adapters.',
-  ],
-  tags: ['Python', 'OpenCV', 'Tesseract', 'EasyOCR', 'PaddleOCR', 'RapidOCR', 'GitHub Actions'],
-  link: 'https://github.com/Abishek9342/ocr-pipeline',
-  linkLabel: 'View on GitHub',
-  featured: true,
-  metric: { value: '72%', label: 'lower character error rate vs. best single OCR engine' },
-};
-
-export const projects: Project[] = [
-  {
-    slug: 'lead-management',
-    title: 'Lead Management MCP Server',
-    tagline: 'Agentic B2B sales automation on AWS Lambda',
-    description:
-      'An MCP server exposing 8 Claude.ai-integrated tools for B2B sales automation (lead CRUD, CRM filtering, ICP scoring, and enrichment), plus a stateless EventBridge worker for scheduled Slack reminders.',
-    bullets: [],
-    tags: ['AWS Lambda', 'MCP (JSON-RPC 2.0)', 'Claude.ai', 'Apify', 'Hunter.io'],
-    link: 'https://github.com/Abishek9342/lead-management',
-    linkLabel: 'View on GitHub',
-  },
-  {
-    slug: 'atp-tennis',
-    title: 'ATP Tennis Match Predictor',
-    tagline: 'ML betting pipeline beating the bookmaker baseline',
-    description:
-      'End-to-end ATP match prediction on 26 years of data: 70,150 matches, 114 engineered features covering Elo, surface affinity, rolling form, H2H, and momentum.',
-    bullets: [],
-    tags: ['LightGBM', 'Streamlit', 'SHAP', 'Python'],
-    link: 'https://github.com/Abishek9342/tennis-odds',
-    linkLabel: 'View on GitHub',
-    metric: { value: '0.781', label: 'AUC, beats Pinnacle bookmaker baseline' },
-  },
-  {
-    slug: 'yolo-asca',
-    title: 'YOLO-ASCA',
-    tagline: 'Construction safety compliance AI',
-    description:
-      'Fused YOLO object detection with an Attentive BiGRU sequence model for real-time PPE identification and rule-based safety compliance scoring on live construction site feeds. Research accepted and published at WiSPNET 2025, SSN College of Engineering, Chennai.',
-    bullets: [],
-    tags: ['YOLO', 'Attentive BiGRU', 'WiSPNET 2025'],
-    link: 'https://ieeexplore.ieee.org/document/11005349/',
-    linkLabel: 'View on IEEE Xplore',
-    metric: { value: '92%', label: 'mAP@0.5 on PPE detection classes' },
-  },
-  {
-    slug: 'finance-datasets',
-    title: 'Financial Reconciliation Dataset Series',
-    tagline: 'Four synthetic datasets, four classical algorithms',
-    description:
-      'Fuzzy invoice matching, FIFO cascade allocation, meet-in-the-middle subset-sum vendor matching, and multi-format bank statement parsing, each with a from-scratch solver validated against independently verified ground truth.',
-    bullets: [],
-    tags: ['Python', 'Pandas', 'Classical Algorithms'],
-    link: 'https://www.kaggle.com/datasets/abishek9324/vendor-subset-sum-matching',
-    linkLabel: 'View on Kaggle',
-    metric: { value: '94–100%', label: 'match accuracy across all four datasets' },
-  },
-  {
-    slug: 'smart-leaf',
-    title: 'Smart Leaf',
-    tagline: 'Deep learning crop diagnostics',
-    description:
-      'A custom CNN trained on 37,940 leaf images spanning 38 disease classes, deployed as an interactive Streamlit app for real-time crop diagnostics with accuracy/loss trends and a confusion-matrix dashboard.',
-    bullets: [],
-    tags: ['TensorFlow', 'CNN', 'Streamlit'],
-    link: 'https://github.com/Abishek9342/Plants-Disease-Prediction',
-    linkLabel: 'View on GitHub',
-  },
-];
-
-export const skillGroups: { label: string; items: string[] }[] = [
-  {
-    label: 'Languages',
-    items: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'C', 'C++'],
-  },
-  {
-    label: 'AI / ML & LLMs',
-    items: ['LangChain', 'Anthropic', 'Google Vertex AI', 'AWS Bedrock', 'TensorFlow', 'PyTorch', 'RAG', 'Agents'],
-  },
-  {
-    label: 'Backend',
-    items: ['FastAPI', 'Flask', 'Pydantic', 'SQLAlchemy', 'JWT', 'MCP', 'REST'],
-  },
-  {
-    label: 'Frontend',
-    items: ['React', 'TypeScript', 'Vite', 'Next.js', 'Tailwind CSS'],
-  },
-  {
-    label: 'Databases',
-    items: ['PostgreSQL', 'MongoDB', 'Neo4j', 'Supabase', 'DynamoDB', 'ChromaDB'],
-  },
-  {
-    label: 'Cloud & DevOps',
-    items: ['AWS Lambda', 'GCP', 'Docker', 'nginx', 'GitHub Actions', 'Git', 'GitHub', 'Postman'],
-  },
-];
-
-export const publications = [
-  {
-    title: 'truScanner v0.2.10',
-    detail: 'Open-source static analysis CLI for PII and financial data detection, published to PyPI.',
-    link: 'https://pypi.org/project/truscanner',
-    linkLabel: 'View on PyPI',
-  },
+export const publications: Publication[] = [
   {
     title: 'YOLO-ASCA: A Rule-Based Framework for Identifying Safety Risks in Construction Management',
     detail: 'WiSPNET 2025, SSN College of Engineering, Chennai. Published on IEEE Xplore.',
@@ -179,15 +135,42 @@ export const publications = [
     linkLabel: 'View on IEEE Xplore',
   },
   {
-    title: 'Vendor Subset-Sum Matching',
-    detail: 'Synthetic financial-reconciliation dataset with a meet-in-the-middle subset-sum solver, published to Kaggle.',
-    link: 'https://www.kaggle.com/datasets/abishek9324/vendor-subset-sum-matching',
+    title: 'truScanner v0.2.10',
+    detail: 'Open-source CLI for PII and financial data detection, published on PyPI.',
+    link: 'https://pypi.org/project/truscanner',
+    linkLabel: 'View on PyPI',
+  },
+];
+
+const K = 'https://www.kaggle.com/datasets/abishek9324/';
+
+export const datasets: Publication[] = [
+  {
+    title: 'Agent Failure Atlas 2026',
+    detail:
+      'Reproducible benchmark of multi-step AI-agent trajectories: a 9-table relational dataset with 2,202 runs, 25,964 steps and a 30-category failure taxonomy. The most downloaded of the four.',
+    link: K + 'agent-failure-atlas-2026',
     linkLabel: 'View on Kaggle',
   },
   {
-    title: 'Bank Statement Multi-Format Parsing',
-    detail: 'Synthetic financial-reconciliation dataset with a multi-format parser and solver, published to Kaggle.',
-    link: 'https://www.kaggle.com/datasets/abishek9324/bank-statement-multiformat-parsing',
+    title: 'Fuzzy Invoice Reconciliation',
+    detail:
+      'Accounts-payable dataset with a solver that applies exact, fuzzy and subset-sum matching in sequence and recovers 94.4% of true matching pairs.',
+    link: K + 'fuzzy-invoice-reconciliation',
+    linkLabel: 'View on Kaggle',
+  },
+  {
+    title: 'Vendor Subset-Sum Matching',
+    detail:
+      'Matching vendor payments to combinations of open invoices with a meet-in-the-middle solver: 99.2% precision and 97.5% recall.',
+    link: K + 'vendor-subset-sum-matching',
+    linkLabel: 'View on Kaggle',
+  },
+  {
+    title: 'Student Performance & Placement Prediction',
+    detail:
+      '1,500 students with causally related features and two targets (CGPA and placement), covering regression, classification and clustering in one dataset.',
+    link: K + 'student-performance-placement-prediction-ml',
     linkLabel: 'View on Kaggle',
   },
 ];

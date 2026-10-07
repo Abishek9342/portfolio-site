@@ -4,7 +4,7 @@ import './Hero.css';
 
 const terminalLines = [
   { prompt: true, text: 'whoami' },
-  { prompt: false, text: 'abishek — ai engineer, chennai' },
+  { prompt: false, text: 'abishek — ai engineer' },
   { prompt: true, text: 'cat stack.txt' },
   { prompt: false, text: 'python · typescript · fastapi · react' },
   { prompt: false, text: 'aws lambda · gcp · langchain' },
@@ -28,16 +28,16 @@ export function Hero() {
           </h1>
           <p className="hero-sub">
             Production LLM platforms, agentic tools, and full-stack applications, from a
-            Claude-integrated MCP server to a finance reconciliation engine processing real
-            bank statements for a retail company.
+            Claude-integrated MCP server to a finance operations platform used daily by a
+            retailer's finance team.
           </p>
           <div className="hero-actions">
             <a className="btn btn-primary" href={profile.resumeUrl} download>
               <DownloadIcon size={14} />
               Download resume
             </a>
-            <a className="btn btn-secondary" href="#projects">
-              View projects
+            <a className="btn btn-secondary" href="#experience">
+              View my work
               <ArrowUpRightIcon size={13} />
             </a>
           </div>
