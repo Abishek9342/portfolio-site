@@ -11,6 +11,7 @@ const links = [
 
 export function Nav() {
   const [active, setActive] = useState('top');
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const sections = links
@@ -38,12 +39,23 @@ export function Nav() {
         <a href="#top" className="nav-logo">
           Abishek<span className="nav-logo-dot">.</span>
         </a>
-        <nav className="nav-links">
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          aria-controls="site-nav"
+          onClick={() => setOpen((o) => !o)}
+        >
+          <span className={open ? 'nav-toggle-bars nav-toggle-open' : 'nav-toggle-bars'} />
+        </button>
+        <nav id="site-nav" className={open ? 'nav-links nav-links-open' : 'nav-links'}>
           {links.map((link) => (
             <a
               href={link.href}
               key={link.href}
               className={active === link.id ? 'nav-link-active' : undefined}
+              onClick={() => setOpen(false)}
             >
               {link.label}
             </a>
