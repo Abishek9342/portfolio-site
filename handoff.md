@@ -64,6 +64,9 @@ checked, and whether it is live.
     AI answers per UTC day counted in Netlify Blobs store `buddy-usage` (fails closed on Netlify; local dev
     skips via BUDDY_LOCAL); prompt says no emoji + share Email/LinkedIn/WhatsApp lines, and emoji are also
     stripped server-side; max_tokens 600, effort low, claude-opus-5-5.
+  - Buddy launcher raised (bottom 76px desktop / 66px phone, panel above it) because the live site shows a
+    "Powered by Netlify" badge in the bottom-right corner that covered it. Pushed e6316ad, checked live:
+    launcher clickable at 390 and 1440 widths.
   - **Open:** user should check Netlify credit usage (dashboard -> usage / AI Gateway) after a few days and
     lower DAILY_LIMIT or switch to FAQ-only (`AI_FALLBACK = false`) if credits run low.
   - When adding facts to the site, add/adjust the matching FAQ entry in `faq.ts` and re-run a self-match check.
