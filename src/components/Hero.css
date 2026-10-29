@@ -52,6 +52,43 @@
   margin-top: 18px;
 }
 
+/* ---- Intro streamed like an LLM response ---- */
+
+.hero-sub-model {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.hero-sub-spark {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.tok {
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+.tok-on {
+  opacity: 1;
+}
+
+.tok-caret {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: -0.12em;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
 .hero-actions {
   display: flex;
   gap: 10px;
@@ -99,7 +136,34 @@
   color: #8a8378;
 }
 
+.terminal {
+  cursor: text;
+}
+
+.terminal-live {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: #8a8378;
+}
+
+.terminal-live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6bb383;
+  box-shadow: 0 0 0 3px rgba(107, 179, 131, 0.18);
+}
+
 .terminal-body {
+  height: 268px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #3a362f transparent;
   padding: 18px 18px 22px;
   font-family: var(--mono);
   font-size: 13px;
@@ -128,6 +192,73 @@
 
 .terminal-out-accent {
   color: var(--accent2);
+}
+
+.terminal-out-muted {
+  color: #8a8378;
+}
+
+.terminal-out-error {
+  color: #e0645a;
+}
+
+.terminal-out {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.term-link {
+  color: #f0ece2;
+  text-decoration: underline;
+  text-decoration-color: rgba(192, 106, 65, 0.6);
+  text-underline-offset: 3px;
+}
+
+.term-link:hover {
+  color: var(--accent2);
+}
+
+.terminal-input-line {
+  cursor: text;
+}
+
+.terminal-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  color: #f0ece2;
+  caret-color: var(--accent2);
+}
+
+.terminal-input::placeholder {
+  color: #6b655b;
+}
+
+.terminal-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 18px 16px;
+}
+
+.terminal-chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #cfc8ba;
+  background: #2a2721;
+  border: 1px solid #36322b;
+  border-radius: 999px;
+  padding: 4px 10px;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.terminal-chip:hover {
+  color: var(--accent2);
+  border-color: rgba(192, 106, 65, 0.5);
 }
 
 .terminal-cursor {

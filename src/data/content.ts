@@ -9,6 +9,10 @@ export const profile = {
   resumeUrl: '/Abishek-resume.pdf',
 };
 
+// WhatsApp DM link with a friendly prefilled message (used by Contact and Buddy).
+const WHATSAPP_PREFILL = "Hi Abishek, I saw your portfolio and I'd like to connect.";
+export const whatsappUrl = `https://wa.me/${profile.whatsappNumber}?text=${encodeURIComponent(WHATSAPP_PREFILL)}`;
+
 // Descriptions use **double asterisks** for the key result, rendered bold
 // (see RichText in Experience.tsx).
 export type WorkProject = {
@@ -35,19 +39,19 @@ export const experience: Experience[] = [
         title: 'PRPL Finance Operations Platform',
         tags: ['FastAPI', 'React 19', 'TypeScript', 'PostgreSQL', 'GCP'],
         description:
-          "Built and maintain the company's finance automation platform, **used daily by the finance team** across **~20 reconciliation and GST modules** (AP, AR, GST, TDS, GR/IR, inter-company, bank, card, tender and gift card). Own the architecture, backend and frontend development, role-based access control, security hardening, **500+ automated tests** and production deployment on Google Cloud.",
+          "Built and own the company's finance automation platform, delivering **~20 reconciliation and GST modules used daily** by the finance team. Own the architecture, backend and frontend development, role-based access control, security hardening, **500+ automated tests** and production deployment on Google Cloud.",
       },
       {
         title: 'GST Input Tax Credit Reconciliation',
         tags: ['Python', 'Pandas', 'SAP OData', 'ReportLab'],
         description:
-          "Designed an 11-level matching engine that reconciles **~3.9 lakh SAP purchase records against GSTR-2B in minutes**, covering exact, date, tax, invoice-similarity and credit-note rules. Integrated the live SAP vendor master over OData to generate a GSTR-1 non-filing notice for each vendor and **email ~2,000 vendors automatically**, replacing manual follow-up and protecting the company's input tax credit.",
+          "Designed a multi-level **GST input tax credit reconciliation engine** that matches SAP purchase records against GSTR-2B **in minutes**, covering exact, date, tax, invoice-similarity and credit-note rules. Integrated the live SAP vendor master over OData to **automate vendor compliance notices**, replacing manual follow-up and protecting the company's input tax credit.",
       },
       {
         title: 'Enterprise Email Integration',
         tags: ['Microsoft Graph API', 'OAuth 2.0', 'PostgreSQL'],
         description:
-          "Migrated every outgoing email, including weekly statements to **~92 accountants**, vendor notices, user invitations and system alerts, to a **Microsoft 365 shared mailbox via the Microsoft Graph API** with certificate-based authentication. Implemented rate limiting that **keeps sending within the organisation's hourly and daily limits**, with automatic pause and resume for large batches.",
+          "Integrated enterprise email automation with **Microsoft 365 via the Microsoft Graph API**, covering statements, vendor notices, user invitations and system alerts, with certificate-based authentication. Implemented **rate-limited batch delivery** that stays within the organisation's sending limits, with automatic pause and resume for large batches.",
       },
       {
         title: 'LLM Finance Assistant and Agents',
@@ -59,13 +63,13 @@ export const experience: Experience[] = [
         title: 'AP Accountant Performance Analytics',
         tags: ['Python', 'Pandas', 'PostgreSQL'],
         description:
-          "Automated weekly tracking of **~58,000 open vendor items** to show what each accountant cleared, carried forward or newly received, **matching the finance team's manual result exactly**. Scores and ranks **~98 accountants** on ageing reduction, offset clearance and task completion, with an AI-written management summary and a personalised pending-work email for each accountant.",
+          "Developed **accountant performance analytics** that track weekly clearance of open vendor items, showing what each accountant cleared, carried forward or newly received and **matching the finance team's manual results exactly**. Ranks accountants on ageing reduction, offset clearance and task completion, with **AI-written management summaries** and a personalised pending-work email for each accountant.",
       },
       {
         title: 'Bank Statement Processing Engine',
         tags: ['Python', 'Pandas', 'LLM Column Mapping'],
         description:
-          "**Replaced five bank-specific parsers** with one configuration-driven engine for PDF, Excel and CSV statements, with totals cross-checked against each statement's summary. Added **AI-proposed column mapping** for new formats from masked sample rows, validated on the full file and **approved by a user before use** (identical totals on 54 real PhonePe files).",
+          "Engineered a **configuration-driven bank statement processing engine** with built-in total validation against each statement's summary, replacing multiple bank-specific parsers. Added **AI-assisted onboarding of new formats**, where proposed column mappings are validated on the full file and **approved by a user before use**.",
       },
     ],
   },

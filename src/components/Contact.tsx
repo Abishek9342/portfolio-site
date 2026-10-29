@@ -1,13 +1,7 @@
-import { profile } from '../data/content';
+import { profile, whatsappUrl } from '../data/content';
 import { GithubIcon, KaggleIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from './Icons';
 import { SectionEyebrow } from './SectionEyebrow';
 import './Contact.css';
-
-const WHATSAPP_PREFILL = "Hi Abishek, I saw your portfolio and I'd like to connect.";
-
-function whatsappUrl(number: string) {
-  return `https://wa.me/${number}?text=${encodeURIComponent(WHATSAPP_PREFILL)}`;
-}
 
 export function Contact() {
   const year = new Date().getFullYear();
@@ -35,7 +29,7 @@ export function Contact() {
               <span>LinkedIn</span>
             </a>
             {profile.whatsappNumber && (
-              <a href={whatsappUrl(profile.whatsappNumber)} target="_blank" rel="noreferrer" aria-label="WhatsApp">
+              <a href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="WhatsApp">
                 <WhatsAppIcon size={18} />
                 <span>WhatsApp</span>
               </a>

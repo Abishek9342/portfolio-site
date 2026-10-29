@@ -2,6 +2,12 @@
   command = "npm run build"
   publish = "dist"
 
+# Buddy chat assistant (netlify/functions/buddy.mts). Must stay above the SPA fallback.
+[[redirects]]
+  from = "/api/buddy"
+  to = "/.netlify/functions/buddy"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

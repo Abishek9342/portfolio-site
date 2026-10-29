@@ -1,18 +1,30 @@
+import { useEffect, useState } from 'react';
 import { profile } from '../data/content';
 import { ArrowUpRightIcon, DownloadIcon } from './Icons';
+import { Terminal } from './Terminal';
 import './Hero.css';
 
-const terminalLines = [
-  { prompt: true, text: 'whoami' },
-  { prompt: false, text: 'abishek — ai engineer' },
-  { prompt: true, text: 'cat stack.txt' },
-  { prompt: false, text: 'python · typescript · fastapi · react' },
-  { prompt: false, text: 'aws lambda · gcp · langchain' },
-  { prompt: true, text: 'status --current' },
-  { prompt: false, text: 'building prpl @ pothys retail', accent: true },
-];
+const SUB =
+  "Production LLM platforms, agentic tools, and full-stack applications, from a Claude-integrated MCP server to a finance operations platform used daily by a retailer's finance team.";
+const TOKENS = SUB.split(/(?<= )/);
+
+// Streams the intro like an LLM response: one token at a time with a caret. Every word is
+// rendered from the start (hidden until streamed) so the layout never shifts.
+function useStream(total: number) {
+  const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const [shown, setShown] = useState(reduce ? total : 0);
+  useEffect(() => {
+    if (shown >= total) return;
+    const t = setTimeout(() => setShown((n) => n + 1), shown === 0 ? 500 : 38 + Math.random() * 50);
+    return () => clearTimeout(t);
+  }, [shown, total]);
+  return shown;
+}
 
 export function Hero() {
+  const shown = useStream(TOKENS.length);
+  const streaming = shown < TOKENS.length;
+
   return (
     <section id="top" className="hero section">
       <div className="dot-grid" aria-hidden="true" />
@@ -26,10 +38,19 @@ export function Hero() {
           <h1 className="hero-title">
             I build AI systems that <span className="accent-em">ship</span>, not just demos.
           </h1>
-          <p className="hero-sub">
-            Production LLM platforms, agentic tools, and full-stack applications, from a
-            Claude-integrated MCP server to a finance operations platform used daily by a
-            retailer's finance team.
+          <p className="hero-sub" aria-label={SUB}>
+            <span className="hero-sub-model" aria-hidden="true">
+              <span className="hero-sub-spark">✦</span>
+              {streaming ? 'generating' : 'response'}
+            </span>
+            <span aria-hidden="true">
+              {TOKENS.map((t, i) => (
+                <span key={i} className={i < shown ? 'tok tok-on' : 'tok'}>
+                  {t}
+                  {i === shown - 1 && streaming && <span className="tok-caret" />}
+                </span>
+              ))}
+            </span>
           </p>
           <div className="hero-actions">
             <a className="btn btn-primary" href={profile.resumeUrl} download>
@@ -43,34 +64,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="terminal card" aria-hidden="true">
-          <div className="terminal-bar">
-            <span className="terminal-dot terminal-dot-red" />
-            <span className="terminal-dot terminal-dot-amber" />
-            <span className="terminal-dot terminal-dot-green" />
-            <span className="terminal-title">abishek — zsh</span>
-          </div>
-          <div className="terminal-body">
-            {terminalLines.map((line, i) => (
-              <div className="terminal-line" key={i}>
-                {line.prompt ? (
-                  <>
-                    <span className="terminal-prompt">❯</span>
-                    <span className="terminal-cmd">{line.text}</span>
-                  </>
-                ) : (
-                  <span className={line.accent ? 'terminal-out terminal-out-accent' : 'terminal-out'}>
-                    {line.text}
-                  </span>
-                )}
-              </div>
-            ))}
-            <div className="terminal-line">
-              <span className="terminal-prompt">❯</span>
-              <span className="terminal-cursor" />
-            </div>
-          </div>
-        </div>
+        <Terminal />
       </div>
     </section>
   );
