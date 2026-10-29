@@ -2,11 +2,8 @@
   command = "npm run build"
   publish = "dist"
 
-# Buddy chat assistant (netlify/functions/buddy.mts). Must stay above the SPA fallback.
-[[redirects]]
-  from = "/api/buddy"
-  to = "/.netlify/functions/buddy"
-  status = 200
+# Buddy's AI endpoint (/api/buddy) is routed and rate-limited by the `config` export in
+# netlify/functions/buddy.mts; Netlify does not allow function rate limits in this file.
 
 [[redirects]]
   from = "/*"

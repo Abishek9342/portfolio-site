@@ -10,9 +10,9 @@ import './Buddy.css';
 // questions offered after every reply. Other parts of the site
 // (the terminal's ask/buddy command) open it by dispatching OPEN_BUDDY_EVENT, optionally with a question.
 
-// When true, questions the answer bank can't handle go to the Claude-backed /api/buddy
-// (netlify/functions/buddy.mts). Needs ANTHROPIC_API_KEY set on Netlify; see handoff.md.
-const AI_FALLBACK = false;
+// Questions the answer bank can't handle go to the Claude-backed /api/buddy
+// (netlify/functions/buddy.mts, rate-limited and capped per day). Set false to go FAQ-only.
+const AI_FALLBACK = true;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -241,7 +241,7 @@ export function Buddy() {
               </svg>
             </button>
           </form>
-          <p className="buddy-foot">Answers come from Abishek's portfolio.</p>
+          <p className="buddy-foot">Answers come from Abishek's portfolio. Some are AI-generated.</p>
         </section>
       )}
 

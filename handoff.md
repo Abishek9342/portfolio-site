@@ -56,6 +56,16 @@ checked, and whether it is live.
     personal, thanks, bye, fallback) lists Email / LinkedIn / WhatsApp; `whatsappUrl` now lives in
     `content.ts` (shared with Contact.tsx) and Buddy renders wa.me links as a green "Chat on WhatsApp"
     button. Tested: 31 casual messages route right; browser run at 390px shows the button, href = DM with prefill.
+  - **2026-10-29: pushed (a0f9cdd), Netlify auto-deployed within ~1 min.** Found that `/api/buddy` already
+    returned real Claude answers live: Netlify AI Gateway injects ANTHROPIC_API_KEY/BASE_URL and bills the
+    Netlify account's credits (same credits as hosting). User chose to turn AI on properly:
+    `AI_FALLBACK = true` (FAQ first, AI only for unmatched questions); function routed by `config.path`
+    (old netlify.toml redirect removed) with Netlify rate limit 6 req/60 s per IP; site-wide DAILY_LIMIT 150
+    AI answers per UTC day counted in Netlify Blobs store `buddy-usage` (fails closed on Netlify; local dev
+    skips via BUDDY_LOCAL); prompt says no emoji + share Email/LinkedIn/WhatsApp lines, and emoji are also
+    stripped server-side; max_tokens 600, effort low, claude-opus-5-5.
+  - **Open:** user should check Netlify credit usage (dashboard -> usage / AI Gateway) after a few days and
+    lower DAILY_LIMIT or switch to FAQ-only (`AI_FALLBACK = false`) if credits run low.
   - When adding facts to the site, add/adjust the matching FAQ entry in `faq.ts` and re-run a self-match check.
  get an Anthropic API key, set `ANTHROPIC_API_KEY` on Netlify (and in
     `.env.local`), set `AI_FALLBACK = true` in `Buddy.tsx`; unmatched questions then go to `/api/buddy`.

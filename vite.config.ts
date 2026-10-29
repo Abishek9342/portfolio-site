@@ -4,7 +4,7 @@ import { defineConfig, loadEnv, type Plugin } from 'vite'
 
 // In `npm run dev`, serve /api/buddy from the Netlify function source so Buddy works on
 // localhost too. ANTHROPIC_API_KEY is read from .env.local (gitignored). Production uses
-// the real Netlify function via the redirect in netlify.toml.
+// the real Netlify function (routed by its `config.path`).
 function buddyDevApi(): Plugin {
   return {
     name: 'buddy-dev-api',
@@ -12,6 +12,7 @@ function buddyDevApi(): Plugin {
     configureServer(server) {
       const env = loadEnv(server.config.mode, process.cwd(), '')
       if (env.ANTHROPIC_API_KEY) process.env.ANTHROPIC_API_KEY = env.ANTHROPIC_API_KEY
+      process.env.BUDDY_LOCAL = '1' // Netlify Blobs isn't available locally; skip the daily cap
 
       server.middlewares.use('/api/buddy', async (req, res) => {
         try {
