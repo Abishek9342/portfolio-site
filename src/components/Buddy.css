@@ -3,7 +3,7 @@
 .buddy-launcher {
   position: fixed;
   right: 22px;
-  bottom: 22px;
+  bottom: 76px; /* sits above Netlify's "Powered by Netlify" badge in the corner */
   z-index: 250;
   display: inline-flex;
   align-items: center;
@@ -47,10 +47,10 @@
 .buddy-panel {
   position: fixed;
   right: 22px;
-  bottom: 84px;
+  bottom: 138px;
   z-index: 250;
   width: 370px;
-  height: min(560px, calc(100vh - 120px));
+  height: min(560px, calc(100vh - 174px));
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -298,14 +298,14 @@
 @media (max-width: 480px) {
   .buddy-launcher {
     right: 14px;
-    bottom: 14px;
+    bottom: 66px;
   }
 
   .buddy-panel {
     right: 8px;
     left: 8px;
-    bottom: 72px;
+    bottom: 124px;
     width: auto;
-    height: min(560px, calc(100dvh - 92px));
+    height: min(560px, calc(100dvh - 144px));
   }
 }
