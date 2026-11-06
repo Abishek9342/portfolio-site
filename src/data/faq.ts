@@ -414,6 +414,14 @@ export const faqs: Faq[] = [
     next: ['truscanner', 'github', 'kaggle'],
   },
   {
+    id: 'playroom',
+    topic: 'opensource',
+    q: 'What is Playroom?',
+    keywords: ['playroom', 'game', 'games', 'multiplayer', 'personal', 'side', 'hobby', 'cloudflare', 'wordchain', 'xo', 'patches', 'cards', 'imposter'],
+    answer: `Playroom is his personal project, a live multiplayer games app. ${plain(project('Playroom').description)} Play it here: ${project('Playroom').link} and see the code at https://github.com/Abishek9342/Playroom`,
+    next: ['github', 'opensource', 'ai-work'],
+  },
+  {
     id: 'github',
     topic: 'opensource',
     q: "What's his GitHub?",

@@ -106,6 +106,20 @@ export const experience: Experience[] = [
       },
     ],
   },
+  {
+    company: 'Personal projects',
+    role: 'Independent',
+    dates: 'Oct 2026 – Present',
+    projects: [
+      {
+        title: 'Playroom: Multiplayer Games App',
+        tags: ['React', 'Cloudflare Workers', 'Durable Objects', 'D1', 'WebRTC'],
+        description:
+          "Built and shipped a **mobile-first multiplayer games app** with five games: Word Chain, XO, Patches, 5 Cards and Imposter. Friends join a live room with a 6-letter code, and **the server is the referee**: every move is checked by one rules engine running in a **Cloudflare Durable Object per room**, the same engine that powers practice games against bots. Includes accounts with Google sign-in, **voice chat over WebRTC**, pause and rematch, rankings and an installable PWA, all on Cloudflare's **free plan**.",
+        link: 'https://playroom.vibezone-games.workers.dev',
+      },
+    ],
+  },
 ];
 
 export const skillGroups: { label: string; items: string[] }[] = [

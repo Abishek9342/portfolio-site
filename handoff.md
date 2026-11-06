@@ -3,6 +3,17 @@
 Newest entry first. Add an entry for every change session: what changed, where it was
 checked, and whether it is live.
 
+## 2026-11-06 — Playroom added (pushed, Netlify auto-deploy)
+
+- `src/data/content.ts`: new experience entry "Personal projects" (Independent, Oct 2026 – Present) with
+  "Playroom: Multiplayer Games App" (live link https://playroom.vibezone-games.workers.dev). Not on the
+  resume yet (user asked for it on the site).
+- `src/data/faq.ts`: Buddy FAQ entry `playroom` (live + GitHub links). The AI fallback picks it up from
+  content.ts automatically.
+- Checked: `npm run build` clean; preview at 1440 and 390: card renders, no sideways scroll, link right;
+  Buddy answers "does he have any side projects like a game?" with the Playroom entry; 0 console errors.
+- Separate new site: `../portfolio-v2` (saai.pro style), pushed to github.com/Abishek9342/Funky-portfolio.
+
 ## 2026-10-28 — Pothys wording matched to the new 1-page resume (NOT pushed)
 
 - `src/data/content.ts`: rewrote the 6 Pothys project descriptions in the resume's professional tone.
