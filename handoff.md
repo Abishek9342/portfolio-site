@@ -4,7 +4,7 @@ Newest entry first. Add an entry for every change session: what changed, where i
 checked, and whether it is live.
 
 
-## 2026-11-18 — Freelance section + 5 sample sites merged in (local only, NOT pushed)
+## 2026-11-18 — Freelance section + 5 sample sites merged in (PUSHED 89ae645, LIVE)
 
 - New section 02 "Explore freelance projects" (`src/components/Freelance.tsx/.css`, data
   `freelanceProjects` + `freelanceWhatsappUrl` in content.ts): bento of 5 browser-frame cards (screenshot
@@ -18,7 +18,7 @@ checked, and whether it is live.
 - Checked: tsc + build clean; preview on :5185 (5174 is taken by Playroom); site-templates
   `scripts/check-portfolio.mjs` ALL OK (360/390/820/1440 no sideways scroll, cards/screens load,
   every /work page renders, back link lands on #freelance); section screenshots reviewed.
-- Open: push to main (= deploy) after the user approves.
+- Pushed on the user's "push it now"; live check against https://abisheksridharan.netlify.app with check-portfolio.mjs: ALL OK (24 checks).
 
 ## 2026-11-06 — Playroom added (pushed, Netlify auto-deploy)
 
