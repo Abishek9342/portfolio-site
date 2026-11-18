@@ -3,6 +3,23 @@
 Newest entry first. Add an entry for every change session: what changed, where it was
 checked, and whether it is live.
 
+
+## 2026-11-18 — Freelance section + 5 sample sites merged in (local only, NOT pushed)
+
+- New section 02 "Explore freelance projects" (`src/components/Freelance.tsx/.css`, data
+  `freelanceProjects` + `freelanceWhatsappUrl` in content.ts): bento of 5 browser-frame cards (screenshot
+  pans the full page on hover; phone screenshot on small screens) + dark "Your business could be next"
+  WhatsApp card. Nav link "Freelance". Skills/Publications/Contact eyebrows renumbered 03/04/05.
+- `public/work/<cafe|clinic|foodcart|nursery|shop>/` + `public/work/thumbs/`: BUILT output exported from
+  ../site-templates (`npm run export:portfolio` there). Do not edit by hand; ~15 MB.
+- App.tsx: scrolls to `location.hash` after first render (the samples' "← All samples" link is /#freelance).
+- Buddy FAQ `freelance` ("Does he build websites for businesses?").
+- Not on the resume (user wants it on the site). Netlify `/*` SPA redirect is fine: real files win.
+- Checked: tsc + build clean; preview on :5185 (5174 is taken by Playroom); site-templates
+  `scripts/check-portfolio.mjs` ALL OK (360/390/820/1440 no sideways scroll, cards/screens load,
+  every /work page renders, back link lands on #freelance); section screenshots reviewed.
+- Open: push to main (= deploy) after the user approves.
+
 ## 2026-11-06 — Playroom added (pushed, Netlify auto-deploy)
 
 - `src/data/content.ts`: new experience entry "Personal projects" (Independent, Oct 2026 – Present) with

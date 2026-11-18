@@ -22,7 +22,7 @@ export function Publications() {
   return (
     <section id="publications" className="section publications-section">
       <div className="container">
-        <SectionEyebrow num="03" label="Publications & open source" />
+        <SectionEyebrow num="04" label="Publications & open source" />
         <h2 className="section-title">Publications</h2>
 
         <div className="publications-grid publications-grid-2">

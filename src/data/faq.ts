@@ -1,4 +1,4 @@
-import { datasets, experience, profile, skillGroups, whatsappUrl } from './content';
+import { datasets, experience, freelanceProjects, freelanceWhatsappUrl, profile, skillGroups, whatsappUrl } from './content';
 
 // Buddy's answer bank. Every answer uses only facts already on the site (content.ts) or the
 // resume; never add numbers or claims that aren't on record there.
@@ -420,6 +420,14 @@ export const faqs: Faq[] = [
     keywords: ['playroom', 'game', 'games', 'multiplayer', 'personal', 'side', 'hobby', 'cloudflare', 'wordchain', 'xo', 'patches', 'cards', 'imposter'],
     answer: `Playroom is his personal project, a live multiplayer games app. ${plain(project('Playroom').description)} Play it here: ${project('Playroom').link} and see the code at https://github.com/Abishek9342/Playroom`,
     next: ['github', 'opensource', 'ai-work'],
+  },
+  {
+    id: 'freelance',
+    topic: 'opensource',
+    q: 'Does he build websites for businesses?',
+    keywords: ['freelance', 'website', 'websites', 'site', 'business', 'shop', 'cafe', 'clinic', 'nursery', 'cart', 'client', 'hire', 'build', 'static', 'samples', 'price', 'cost'],
+    answer: `Yes, he builds websites for small businesses: fast on phones, with ordering, booking and enquiries that land on WhatsApp. See the five live samples (${freelanceProjects.map((p) => p.niche.toLowerCase()).join(', ')}) at https://abisheksridharan.netlify.app/#freelance and message him here for a quote: ${freelanceWhatsappUrl}`,
+    next: ['playroom', 'contact', 'about'],
   },
   {
     id: 'github',

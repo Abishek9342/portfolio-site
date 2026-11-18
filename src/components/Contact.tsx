@@ -8,7 +8,7 @@ export function Contact() {
   return (
     <section id="contact" className="section contact-section">
       <div className="container">
-        <SectionEyebrow num="04" label="Get in touch" />
+        <SectionEyebrow num="05" label="Get in touch" />
         <div className="contact-card card">
           <h2 className="contact-title">Let's talk</h2>
           <p className="contact-sub">

@@ -192,3 +192,54 @@ export const datasets: Publication[] = [
     linkLabel: 'View on Kaggle',
   },
 ];
+
+// Freelance website samples. Built in ../site-templates and exported (built) into public/work/
+// by `npm run export:portfolio` there. Each sample is a fictional business in demo mode.
+export type FreelanceProject = {
+  slug: string; // served at /work/<slug>/, thumbs at /work/thumbs/<slug>*.jpg
+  niche: string;
+  name: string;
+  pitch: string;
+  features: string[];
+};
+
+export const freelanceProjects: FreelanceProject[] = [
+  {
+    slug: 'cafe',
+    niche: 'Café & restaurant',
+    name: 'Second Decoction',
+    pitch: 'Filter-coffee café with a tabbed menu, order slip that sends on WhatsApp, and table booking for music nights.',
+    features: ['Menu tabs + veg filter', 'WhatsApp ordering', 'Table booking'],
+  },
+  {
+    slug: 'shop',
+    niche: 'Online shop',
+    name: 'Thiri & Co.',
+    pitch: 'Handmade candle store with quick view, a cart that remembers, and checkout that sends an itemised order.',
+    features: ['Cart & checkout', 'Free-delivery bar', 'No payment gateway needed'],
+  },
+  {
+    slug: 'foodcart',
+    niche: 'Food cart',
+    name: 'Kaaram Chaat Cart',
+    pitch: 'Street-food stall that shows where the cart is today and takes orders with spice level and pickup time.',
+    features: ['Live location & hours', '+ / − ordering', 'UPI block'],
+  },
+  {
+    slug: 'nursery',
+    niche: 'Plant nursery',
+    name: 'Thottam Garden Centre',
+    pitch: 'Garden centre with a filterable plant catalogue, a 3-question plant finder and garden setup packages.',
+    features: ['Plant finder', 'Basket enquiry', 'Service packages'],
+  },
+  {
+    slug: 'clinic',
+    niche: 'Dental clinic',
+    name: 'Nalam Dental Studio',
+    pitch: 'Boutique dental studio with an interactive smile map that turns concerns into a priced treatment plan, sent on WhatsApp.',
+    features: ['Smile map + plan estimate', 'Price index', 'WhatsApp booking'],
+  },
+];
+
+const FREELANCE_PREFILL = 'Hi Abishek, I saw your freelance website samples. I want a website for my business.';
+export const freelanceWhatsappUrl = `https://wa.me/${profile.whatsappNumber}?text=${encodeURIComponent(FREELANCE_PREFILL)}`;
