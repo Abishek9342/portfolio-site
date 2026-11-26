@@ -277,3 +277,12 @@ button {
     transition: none !important;
   }
 }
+
+/* No visible page scrollbar (user 2026-11-26); scrolling itself is unchanged. */
+html {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}

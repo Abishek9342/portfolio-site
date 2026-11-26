@@ -4,6 +4,38 @@ Newest entry first. Add an entry for every change session: what changed, where i
 checked, and whether it is live.
 
 
+## 2026-11-26: scrollbar, Pothys rewrite, rotating intro, new resume (PUSHED, LIVE)
+
+- `src/index.css`: html `scrollbar-width: none` + `::-webkit-scrollbar { display: none }` on html/body.
+  Scrolling unchanged; the Hero's own thin inner scrollbar (Hero.css) left as is.
+- Checked on dev server :5185: scrollbar gutter 0 px, page still scrolls, no page errors.
+- Hero pill: "Currently building PRPL at Pothys Retail" -> "Building finance automation at Pothys Retail"
+  (user: PRPL is just Pothys Retail Private Limited, not a product). Fits one line at 360/390/1440.
+- PRPL renamed everywhere (user OK): title "Finance Operations Platform", FAQ questions/answers say "finance
+  platform". FAQ id `prpl` and keyword 'prpl' kept so old questions still match.
+- Pothys content refreshed from a survey of the Finance-Ops codebase + the company Bot (capabilities only, no
+  company data, no model names): platform stats now 13 finance areas / ~20 recon engines / ~245 endpoints /
+  ~1,000 tests; GST card adds GSTR-1 and Form 26AS/26Q; NEW cards Inter-Company Reconciliation Engine, Payment
+  Settlement Validation, End-to-End Work Automation Agent (the company bot, 54 tools, approval cards, sandbox;
+  NOT named "Buddy" here because the portfolio's own chat widget is Buddy), Production Engineering and
+  Security; LLM card adds "AI explains, code calculates" + eval suite. FAQ: new work-agent, intercompany,
+  settlement, prod-eng entries; agents/security/testing/stack answers updated.
+- Checked: tsc + build clean, 0 console errors, Experience screenshot at 1440 reviewed, no sideways scroll at 360.
+- Then user: 11 Pothys cards felt like "blabbering / showing off" -> clubbed into 4: Finance Operations Platform
+  (+ production/security + M365 email), Reconciliation and Compliance Engines (GST ITC + inter-company +
+  bank/payment-channel validation), LLM Finance Assistant and Agents, End-to-End Work Automation Agent.
+  AP Accountant Analytics dropped from the page. FAQ answers for the merged/dropped items are now plain strings
+  (not project() lookups), so Ask Buddy still answers them. Re-checked build, 1440 + 360, 0 errors.
+- (later) User: hide the 04/20 counter (removed) and make the lines about HIM, not Pothys features. Now 12
+  lines about who he is (experience, focus, stack, approach, side work), line 1 unchanged.
+- Hero intro now rotates through 20 one-liners (`LINES` in Hero.tsx): each streams in ("generating"), holds 5 s
+  ("response"), fades out; counter 01/20 top-right. Box height fixed by an invisible copy of the longest line,
+  so the buttons never move (checked: same top at 1440 and 360 across 3 lines). Reduced motion: line 1, static.
+  aria-label = line 1 only. Lines restate facts already on the site (no new claims, no company data).
+- Resume updated to match (4 Pothys bullets, see ../Resume/handoff.md) and copied to public/Abishek-resume.pdf;
+  hero line 3 now says "A year and a half" to match the resume's 1.5 years.
+- User said push: committed + pushed to main (Netlify).
+
 ## 2026-11-18 — Freelance section + 5 sample sites merged in (PUSHED 89ae645, LIVE)
 
 - New section 02 "Explore freelance projects" (`src/components/Freelance.tsx/.css`, data

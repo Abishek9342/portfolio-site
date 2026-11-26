@@ -97,24 +97,24 @@ export const faqs: Faq[] = [
     topic: 'pothys',
     q: 'What does he build at Pothys?',
     keywords: ['pothys', 'retail', 'company', 'job', 'employer', 'workplace', 'office', 'work', 'working', 'works'],
-    answer: `He built and owns the company's finance automation platform, with around 20 reconciliation and GST modules used daily by the finance team. His projects there: ${experience[0].projects.map((p) => p.title).join(', ')}.`,
-    next: ['prpl', 'gst', 'finance-assistant'],
+    answer: `He built and owns the company's finance automation platform, covering 13 finance areas with about 20 reconciliation engines used daily by the finance team. His projects there: ${experience[0].projects.map((p) => p.title).join(', ')}.`,
+    next: ['prpl', 'work-agent', 'gst'],
   },
   {
     id: 'prpl',
     topic: 'pothys',
-    q: 'What is the PRPL platform?',
+    q: 'What is the finance operations platform?',
     keywords: ['prpl', 'platform', 'automation', 'modules', 'module'],
-    answer: plain(project('PRPL').description),
+    answer: plain(project('Finance Operations Platform').description),
     next: ['prpl-stack', 'testing', 'gst'],
   },
   {
     id: 'prpl-stack',
     topic: 'pothys',
-    q: 'What is the PRPL platform built with?',
+    q: 'What is the finance platform built with?',
     keywords: ['built', 'with', 'architecture', 'stack', 'hosted', 'host', 'runs'],
     answer:
-      'FastAPI and PostgreSQL on the backend, React 19 with TypeScript on the frontend, running in production on Google Cloud. He owns the architecture, both ends, role-based access control and the deployment.',
+      'FastAPI and PostgreSQL on the backend, React 19 with TypeScript on the frontend, running in production on Google Cloud behind nginx, with systemd timers, nightly backups and alerting. He owns the architecture, both ends, role-based access control and the deployment.',
     next: ['testing', 'security', 'backend'],
   },
   {
@@ -122,7 +122,7 @@ export const faqs: Faq[] = [
     topic: 'pothys',
     q: 'How does he test his code?',
     keywords: ['test', 'tests', 'testing', 'tested', 'quality', 'pytest', 'locust', 'coverage', 'automated'],
-    answer: `The PRPL platform has 500+ automated tests. His testing tools: ${skills('Testing')} (Locust for load testing).`,
+    answer: `The finance platform has about 1,000 automated tests. His testing tools: ${skills('Testing')} (Locust for load testing).`,
     next: ['security', 'prpl-stack', 'safe-ai'],
   },
   {
@@ -131,7 +131,7 @@ export const faqs: Faq[] = [
     q: 'Does he handle security?',
     keywords: ['security', 'secure', 'access', 'rbac', 'permissions', 'auth', 'authentication', 'hardening'],
     answer:
-      'Yes. On the PRPL platform he built role-based access control and did the security hardening. His email integration uses certificate-based authentication with Microsoft 365, and he works with OAuth 2.0 and JWT.',
+      'Yes. On the finance platform he built role-based access control, JWT access and refresh tokens, Google sign-in, upload checks for file type and zip bombs, and database-backed rate limits. His email integration uses certificate-based authentication with Microsoft 365, and he works with OAuth 2.0 and JWT.',
     next: ['email', 'testing', 'safe-ai'],
   },
   {
@@ -139,7 +139,8 @@ export const faqs: Faq[] = [
     topic: 'pothys',
     q: 'Tell me about the GST reconciliation engine',
     keywords: ['gst', 'gstr', '2b', 'itc', 'input', 'tax', 'credit', 'compliance', 'vendor', 'notices'],
-    answer: plain(project('GST Input Tax Credit').description),
+    answer:
+      'His GST input tax credit reconciliation matches SAP purchase records against GSTR-2B in minutes, covering exact, date, tax, invoice-similarity and credit-note rules, and connects to the live SAP vendor master over OData to automate vendor compliance notices. It also checks the sales register against filed GSTR-1 returns and TDS against Form 26AS and 26Q.',
     next: ['sap', 'finance-domain', 'bank'],
   },
   {
@@ -173,7 +174,8 @@ export const faqs: Faq[] = [
     topic: 'pothys',
     q: 'What did he build with Microsoft 365?',
     keywords: ['microsoft', '365', 'm365', 'graph', 'outlook', 'enterprise', 'delivery', 'automation'],
-    answer: plain(project('Enterprise Email').description),
+    answer:
+      'He integrated Microsoft 365 email through the Microsoft Graph API with certificate-based authentication, covering statements, vendor notices, user invitations and system alerts, with rate-limited batch delivery that pauses and resumes to stay within the organisation\'s sending limits.',
     next: ['security', 'analytics', 'backend'],
   },
   {
@@ -181,7 +183,8 @@ export const faqs: Faq[] = [
     topic: 'pothys',
     q: 'What are the accountant performance analytics?',
     keywords: ['accountant', 'accountants', 'analytics', 'performance', 'ranking', 'rankings', 'ageing', 'tracking'],
-    answer: plain(project('AP Accountant').description),
+    answer:
+      'He built accountant performance analytics that track weekly clearance of open vendor items (cleared, carried forward or newly received), matching the finance team\'s manual results exactly. Accountants are ranked on ageing reduction, offset clearance and task completion, with AI-written management summaries and a personalised pending-work email for each one.',
     next: ['finance-domain', 'email', 'ai-work'],
   },
   {
@@ -189,8 +192,44 @@ export const faqs: Faq[] = [
     topic: 'pothys',
     q: 'What is the bank statement engine?',
     keywords: ['bank', 'statement', 'statements', 'parser', 'parsers', 'formats', 'mapping'],
-    answer: plain(project('Bank Statement').description),
+    answer:
+      'A configuration-driven bank statement engine that checks totals against each statement\'s summary and replaced several bank-specific parsers. New formats are onboarded with AI-proposed column mappings that are validated on the full file and approved by a user before use.',
     next: ['safe-ai', 'gst', 'python'],
+  },
+  {
+    id: 'work-agent',
+    topic: 'pothys',
+    q: 'What is his work automation agent?',
+    keywords: ['end-to-end', 'automation', 'automate', 'automates', 'sandbox', 'approval', 'workplace', 'playwright', 'relay', 'erp', 'tasks'],
+    answer: plain(project('End-to-End Work Automation').description),
+    next: ['safe-ai', 'agents', 'finance-assistant'],
+  },
+  {
+    id: 'intercompany',
+    topic: 'pothys',
+    q: 'What is the inter-company reconciliation engine?',
+    keywords: ['inter-company', 'intercompany', 'inter', 'ledgers', 'ledger', 'matching', 'match', 'override', 'audit'],
+    answer:
+      'It matches fund transfers and balances across company ledgers with several strategies (n-way, same-sign and cross-ledger), produces an action workbook for each branch, and has a manual matching screen with a full audit trail of every override, plus AI suggestions that rank and explain likely matches.',
+    next: ['settlement', 'safe-ai', 'finance-domain'],
+  },
+  {
+    id: 'settlement',
+    topic: 'pothys',
+    q: 'What is the payment settlement validation?',
+    keywords: ['settlement', 'settlements', 'payment', 'payments', 'channels', 'card', 'wallet', 'wallets', 'ocr', 'commission'],
+    answer:
+      'Settlement validation for about 10 payment channels (card acquirers, wallets, vouchers and loyalty), driven by declarative per-channel configuration. It checks commission and day-wise totals with live SAP lookups and reads scanned card statements with OCR, verifying every extracted figure against the source text.',
+    next: ['intercompany', 'bank', 'sap'],
+  },
+  {
+    id: 'prod-eng',
+    topic: 'pothys',
+    q: 'How does he run things in production?',
+    keywords: ['production', 'devops', 'deploy', 'deployment', 'nginx', 'linux', 'monitoring', 'backups', 'uptime', 'load'],
+    answer:
+      'The finance platform runs on Google Cloud with systemd services and timers, nginx rate limiting, nightly backups and a monitor that emails alerts. It has JWT access and refresh tokens, Google sign-in, per-module role checks, upload checks for file type and zip bombs, and a database-backed job store so several workers share the load, verified with Locust load tests.',
+    next: ['security', 'testing', 'prpl-stack'],
   },
 
   // ---------- CobuildX.ai ----------
@@ -269,7 +308,7 @@ export const faqs: Faq[] = [
     q: 'Has he built AI agents?',
     keywords: ['agent', 'agents', 'agentic', 'autonomous', 'tools', 'workflows'],
     answer:
-      'Yes. On the finance platform he built scheduled agents, including a maker/checker agent where a second model verifies the first one\'s findings. At CobuildX he built an MCP server that let Claude act as a sales agent with 8 tools.',
+      'Yes. At Pothys he built an end-to-end work automation agent with 54 tools that carries out staff requests and stops for approval before any risky step, and scheduled agents on the finance platform, including a maker/checker agent where a second model verifies the first one\'s findings. At CobuildX he built an MCP server that let Claude act as a sales agent with 8 tools.',
     next: ['maker-checker', 'mcp-server', 'safe-ai'],
   },
   {
@@ -347,7 +386,7 @@ export const faqs: Faq[] = [
     topic: 'skills',
     q: 'Does he do frontend work too?',
     keywords: ['frontend', 'front', 'react', 'ui', 'vite', 'tailwind', 'web', 'website', 'fullstack', 'full'],
-    answer: `Yes, he's full-stack. Frontend: ${skills('Frontend')}. He built the PRPL platform's React 19 frontend, and this portfolio too.`,
+    answer: `Yes, he's full-stack. Frontend: ${skills('Frontend')}. He built the finance platform's React 19 frontend, and this portfolio too.`,
     next: ['backend', 'prpl-stack', 'skills'],
   },
   {

@@ -70,6 +70,30 @@
   font-size: 12px;
 }
 
+/* rotating lines: all share one grid cell; the invisible longest line fixes the height */
+.hero-sub-stack {
+  display: grid;
+}
+
+.hero-sub-sizer,
+.hero-sub-line {
+  grid-area: 1 / 1;
+}
+
+.hero-sub-sizer {
+  visibility: hidden;
+}
+
+.hero-sub-line {
+  transition: opacity 350ms ease, transform 350ms ease, filter 350ms ease;
+}
+
+.hero-sub-line.is-leaving {
+  opacity: 0;
+  transform: translateY(-6px);
+  filter: blur(3px);
+}
+
 .tok {
   opacity: 0;
   transition: opacity 260ms ease;

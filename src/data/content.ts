@@ -36,40 +36,28 @@ export const experience: Experience[] = [
     dates: 'Jul 2026 – Present',
     projects: [
       {
-        title: 'PRPL Finance Operations Platform',
-        tags: ['FastAPI', 'React 19', 'TypeScript', 'PostgreSQL', 'GCP'],
+        title: 'Finance Operations Platform',
+        tags: ['FastAPI', 'React 19', 'PostgreSQL', 'GCP', 'Microsoft Graph'],
         description:
-          "Built and own the company's finance automation platform, delivering **~20 reconciliation and GST modules used daily** by the finance team. Own the architecture, backend and frontend development, role-based access control, security hardening, **500+ automated tests** and production deployment on Google Cloud.",
+          "Built and own the company's finance automation platform: **13 finance areas** with **about 20 reconciliation engines used daily** by the finance team, on **~245 API endpoints** and **about 1,000 automated tests**. Own the architecture, backend, frontend and production on Google Cloud, hardened with role-based access, JWT and Google sign-in, upload checks and rate limits. Statements and vendor notices go out through **Microsoft 365 (Graph API)** with certificate-based authentication and **rate-limited batch delivery**.",
       },
       {
-        title: 'GST Input Tax Credit Reconciliation',
-        tags: ['Python', 'Pandas', 'SAP OData', 'ReportLab'],
+        title: 'Reconciliation and Compliance Engines',
+        tags: ['Python', 'Pandas', 'SAP OData', 'OCR'],
         description:
-          "Designed a multi-level **GST input tax credit reconciliation engine** that matches SAP purchase records against GSTR-2B **in minutes**, covering exact, date, tax, invoice-similarity and credit-note rules. Integrated the live SAP vendor master over OData to **automate vendor compliance notices**, replacing manual follow-up and protecting the company's input tax credit.",
-      },
-      {
-        title: 'Enterprise Email Integration',
-        tags: ['Microsoft Graph API', 'OAuth 2.0', 'PostgreSQL'],
-        description:
-          "Integrated enterprise email automation with **Microsoft 365 via the Microsoft Graph API**, covering statements, vendor notices, user invitations and system alerts, with certificate-based authentication. Implemented **rate-limited batch delivery** that stays within the organisation's sending limits, with automatic pause and resume for large batches.",
+          'Designed the engines behind the platform: a multi-level **GST input tax credit reconciliation** that matches SAP purchases against GSTR-2B **in minutes** and automates vendor compliance notices from the live SAP vendor master; **inter-company matching** across ledgers (n-way, same-sign and cross-ledger) with an audited manual-match screen; and validation of **bank statements and about 10 payment channels**, driven by **declarative configuration instead of per-format code**, with every total checked against its source.',
       },
       {
         title: 'LLM Finance Assistant and Agents',
         tags: ['LLM Function Calling', 'Agentic AI', 'FastAPI'],
         description:
-          'Built a conversational **LLM assistant** that answers finance questions from **live reconciliation data through function calling** and prepares actions such as sending reports, which **run only after the user confirms them**. Designed scheduled agents, including a **maker/checker agent** in which one model drafts findings and a second independently verifies them against the source data.',
+          "Built a conversational **LLM assistant** that answers finance questions from **live reconciliation data through function calling** and prepares actions that **run only after the user confirms them**, with that user's own permissions. The rule across the platform is **AI explains, code calculates**: deterministic code produces every figure, while the model triages daily reconciliation health, explains exceptions and ranks match candidates. Includes a **maker/checker agent**, where a second model verifies the first one's findings against the source data, and an **evaluation suite** for the assistant.",
       },
       {
-        title: 'AP Accountant Performance Analytics',
-        tags: ['Python', 'Pandas', 'PostgreSQL'],
+        title: 'End-to-End Work Automation Agent',
+        tags: ['Agentic AI', 'FastAPI', 'Playwright', 'Function Calling'],
         description:
-          "Developed **accountant performance analytics** that track weekly clearance of open vendor items, showing what each accountant cleared, carried forward or newly received and **matching the finance team's manual results exactly**. Ranks accountants on ageing reduction, offset clearance and task completion, with **AI-written management summaries** and a personalised pending-work email for each accountant.",
-      },
-      {
-        title: 'Bank Statement Processing Engine',
-        tags: ['Python', 'Pandas', 'LLM Column Mapping'],
-        description:
-          "Engineered a **configuration-driven bank statement processing engine** with built-in total validation against each statement's summary, replacing multiple bank-specific parsers. Added **AI-assisted onboarding of new formats**, where proposed column mappings are validated on the full file and **approved by a user before use**.",
+          'Built a multi-user **work automation agent**: staff describe a task in plain words and it carries it out end to end with **54 tools**, running finance-platform modules as the signed-in user, pulling ERP reports through an outbound-only relay, analysing files in a **network-free Python sandbox**, browsing, and running schedules and triggers. Anything that sends or changes data **stops on an approval card that shows the real action**, outside text is fenced off against prompt injection, and a verifier model checks longer jobs. **300+ automated tests.**',
       },
     ],
   },
